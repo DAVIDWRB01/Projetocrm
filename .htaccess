@@ -1,0 +1,13 @@
+# ARQUIVO OBRIGATÓRIO PARA NODE.JS NA HOSTINGER COMPARTILHADA
+# Salve este arquivo como .htaccess na pasta raiz do seu subdomínio
+
+RewriteEngine On
+RewriteRule ^$ http://127.0.0.1:3000/ [P,L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ http://127.0.0.1:3000/$1 [P,L]
+
+# Configurações do Servidor
+PassengerEnabled on
+PassengerAppType node
+PassengerStartupFile server.js
